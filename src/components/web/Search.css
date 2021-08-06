@@ -1,0 +1,9 @@
+.resultados{
+    background-color: red;
+    border-radius: 6%;
+    position: fixed;
+    float: right;
+    right: 40px;
+    z-index: 99;
+    width: 30%;
+}
