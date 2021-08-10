@@ -1,16 +1,14 @@
 import React from 'react'
 
-export const PokemonImg = ({ img, load }) => {
+export const PokemonImg = ({ id }) => {
 
     return (
         <>
-            {load ? <span>Cargando...</span>
-                : <img 
-                    className="card-img-top" 
-                    src={img?.other?.dream_world?.front_default} 
-                    alt="pokemon" 
-                />
-            }
+            <img 
+                className="card-img-top" 
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`} 
+                alt="pokemon" 
+            />
         </>
     )
 }

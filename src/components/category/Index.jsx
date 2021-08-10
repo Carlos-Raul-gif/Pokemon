@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { Category } from './Category';
 
 
 export const Index = () => {
 
-    const [catalogo, setCatalogo] = useState('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=6');
+    const catalogo = 'https://pokeapi.co/api/v2/pokemon?limit=1100';
+
     const { load, data } = useFetch(catalogo);
 
-    useEffect(() => {}, [catalogo])
+    console.log(data)
+
+    useEffect(() => { }, [catalogo])
 
     return (
         <div className="container">
@@ -16,7 +19,7 @@ export const Index = () => {
 
             { 
                 load ? <div className="alert alert-primary" >Cargando... </div>
-                    :  <Category datos={data} setCategory={setCatalogo} />
+                    :  <Category results={data.results} />
             }
 
         </div>
