@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SpanAlert } from '../etiquetas/SpanAlert';
 import { Pokemon } from './Pokemon';
 
 export const Category = ({ results }) => {
@@ -7,16 +8,18 @@ export const Category = ({ results }) => {
 
     return (
         <>
+
         <div className="row">
-            {results.slice(pagination, pagination + 6).map((item, i) => {
-                return <Pokemon key={i} name={item.name} pokeUrl={item.url} />
-            })}
+            { (results.length === 0) ? <SpanAlert tipo="warning" mensaje="No hay resultados" />
+                : results.slice(pagination, pagination + 6)
+                    .map((item, i) => <Pokemon key={i} name={item.name} pokeUrl={item.url} /> )
+            }
         </div>
             
         <div className="text-center">
             { (pagination > 0) && <button onClick={() => setPagination(i => i - 6)} className="btn btn-outline-warning btn-margen">Back</button> }
 
-            <button onClick={() => setPagination(i => i + 6 )} className="btn btn-outline-primary btn-margen">Next</button>
+            { (results.length > 9) && <button onClick={() => setPagination(i => i + 6 )} className="btn btn-outline-primary btn-margen">Next</button> }
         </div>
                 
         </>

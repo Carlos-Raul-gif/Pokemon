@@ -1,25 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
+import { SpanAlert } from '../etiquetas/SpanAlert';
 import { Category } from './Category';
+import { CategoryFilter } from './CategoryFilter';
 
+import './styles.css';
 
 export const Index = () => {
 
-    const catalogo = 'https://pokeapi.co/api/v2/pokemon?limit=1100';
+    const { load, data } = useFetch('https://pokeapi.co/api/v2/pokemon?limit=1100');
 
-    const { load, data } = useFetch(catalogo);
-
-    console.log(data)
-
-    useEffect(() => { }, [catalogo])
+    const [{nombre} , setBusqueda] = useState({nombre: ''});
 
     return (
-        <div className="container">
-            <h5 className="item-center">Elige una carta pokemon</h5>
+        <div className="container" >
+
+            <CategoryFilter nombre={nombre} setBusqueda={setBusqueda} />
 
             { 
-                load ? <div className="alert alert-primary" >Cargando... </div>
-                    :  <Category results={data.results} />
+                load ? <SpanAlert tipo="primary" mensaje="Cargando..." />
+                    :  <Category results={ (nombre === '') ? data.results : data.results.filter(poke => poke.name.includes(nombre)) } />
             }
 
         </div>

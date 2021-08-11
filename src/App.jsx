@@ -1,4 +1,5 @@
 import { Index } from "./components/category/Index";
+import { Footer } from "./components/web/Footer";
 import { Navbar } from "./components/web/Navbar";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Index />
+      <Footer />
     </div>
   );
 }
