@@ -10,7 +10,7 @@
 }
 
 .card:hover{
-    box-shadow: 10px 10px 10px teal;
+    box-shadow: 3px 3px 10px teal;
     background-color: rgb(75, 224, 224);
     transition: all 0.3s;
 }

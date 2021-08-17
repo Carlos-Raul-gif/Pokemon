@@ -4,7 +4,7 @@ import { SpanAlert } from '../etiquetas/SpanAlert';
 import { Category } from './Category';
 import { CategoryFilter } from './CategoryFilter';
 
-import './styles.css';
+import '../../styles/grid-pokemon.css';
 
 export const Index = () => {
 

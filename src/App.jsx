@@ -1,14 +1,21 @@
-import { Index } from "./components/category/Index";
-import { Footer } from "./components/web/Footer";
-import { Navbar } from "./components/web/Navbar";
+import { useState } from "react";
+import { Routes } from "./components/Routes";
+import { UserContext } from "./context/UserContext";
 
 function App() {
+
+  const [usuario, setUsuario] = useState({
+    isAuthenticated: false,
+    nombre: '',
+    email: ''
+  });
+
   return (
-    <div className="App">
-      <Navbar />
-      <Index />
-      <Footer />
-    </div>
+    <UserContext.Provider value={{ usuario, setUsuario }} >
+      <div className="App">
+        <Routes />
+      </div>
+    </UserContext.Provider>
   );
 }
 

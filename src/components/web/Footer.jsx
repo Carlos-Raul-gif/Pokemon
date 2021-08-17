@@ -2,10 +2,10 @@ import React from 'react'
 
 export const Footer = () => {
     return (
-        <footer className="text-center text-lg-start bg-dark text-muted">
+        <footer className="text-center bg-dark text-muted">
         <br />
 
-            <div className="container text-center text-md-start mt-5">
+            <div className="container text-center text-start mt-3">
 
                 <div className="row">
 
@@ -38,18 +38,15 @@ export const Footer = () => {
                     <h6 className="text-uppercase fw-bold mb-4">
                         Contact
                     </h6>
-                    <p><i className="fas fa-home me-3"></i> Maxcanu, Yucatan, Mexico</p>
-                    <p>
-                        <i className="fas fa-envelope me-3"></i>
-                        fabian@gmail.com
-                    </p>
+                    <p> Maxcanu, Yucatan, Mexico</p>
+                    <p>fabian@gmail.com</p>
                     </div>
 
                 </div>
 
             </div>
 
-        <div className="text-center p-4" >
+        <div className="text-center p-2" >
             © 2021 Copyright:
             <a className="text-reset fw-bold" href="/">mi-portafolio.com</a>
         </div>

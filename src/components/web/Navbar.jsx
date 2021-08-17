@@ -1,12 +1,20 @@
-import React from 'react';
-
-import './Search.css';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 export const Navbar = () => {
-
    
-    return (
-        <>
+    const { setUsuario } = useContext(UserContext);
+
+    const logout = () => {
+        setUsuario({
+            isAuthenticated: false,
+            nombre: '',
+            email: ''
+        });
+    }
+
+    return (     
         <nav className="navbar fixed navbar-expand-lg navbar-dark bg-dark">
             <a className="navbar-brand" href="/">PokeDex</a>
             <button className="navbar-toggler " type="button" data-toggle="collapse" 
@@ -17,15 +25,14 @@ export const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="/">Home</a>
+                        <Link className="nav-link" to="/categorias">Categorias</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/">Link</a>
+                        <Link className="nav-link" to="/perfil">Perfil</Link>
                     </li>
                 </ul>
-                <button className="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+                <button onClick={() => logout() } className="btn btn-outline-danger my-2 my-sm-0" >Logout</button>
             </div>
         </nav>
-        </>
     )
 }
