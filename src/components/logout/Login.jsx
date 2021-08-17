@@ -10,6 +10,7 @@ export const Login = () => {
     const { setUsuario } = useContext(UserContext);
 
     const [ values, inputChange, resetValues ] = useForm({
+        isAuthenticated: true,
         email: '',
         password: ''
     });
@@ -18,12 +19,14 @@ export const Login = () => {
 
     const submitForm  = ( e ) => {
         e.preventDefault();
-        
-        setUsuario({
-            isAuthenticated: true,
-            nombre: 'aun',
-            email: email
-        });
+
+        if(email === 'fabian@correo.com'){
+            setUsuario({
+                isAuthenticated: true,
+                nombre: 'aun no',
+                email: email
+            });
+        }
 
         resetValues();
     }
