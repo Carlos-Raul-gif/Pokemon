@@ -11,11 +11,9 @@ function App() {
     nombre: '',
     correo: ''
   }
-
+  
   const [usuario, setUsuario] = useState(JSON.parse(getLocalStorage) || initialState );
-
-  console.log(JSON.parse(getLocalStorage))
-
+  
   useEffect(() => {
     localStorage.setItem('auth', JSON.stringify(usuario));
   }, [ usuario ]);

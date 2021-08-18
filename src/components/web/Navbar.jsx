@@ -15,7 +15,7 @@ export const Navbar = () => {
     }
 
     return (     
-        <nav className="navbar fixed navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
             <a className="navbar-brand" href="/">PokeDex</a>
             <button className="navbar-toggler " type="button" data-toggle="collapse" 
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
