@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
-import { SpanAlert } from '../etiquetas/SpanAlert';
+import { SpanAlert } from '../../components/etiquetas/SpanAlert';
 import { Category } from './Category';
 import { CategoryFilter } from './CategoryFilter';
 

@@ -35,9 +35,9 @@ export const Register = () => {
                 <h1>Registrate gratis</h1>
                 <form onSubmit={submitForm} >
 
-                    <input onChange={inputChange} value={nombre} name="nombre" type="text" required placeholder="nombre" />
-                    <input onChange={inputChange} value={email} name="email" type="text" required placeholder="email" />
-                    <input onChange={inputChange} value={password} name="password" type="password" required placeholder="password" />
+                    <input onChange={inputChange} value={nombre} name="nombre" type="text" required placeholder="Nombre" />
+                    <input onChange={inputChange} value={email} name="email" type="text" required placeholder="Email" />
+                    <input onChange={inputChange} value={password} name="password" type="password" required placeholder="Password" />
 
                     <button type="submit">entrar</button>
                 </form>

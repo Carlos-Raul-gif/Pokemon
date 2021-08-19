@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes } from "./components/Routes";
+import { Routes } from "./Routes";
 import { UserContext } from "./context/UserContext";
 
 function App() {
@@ -20,9 +20,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{ usuario, setUsuario }} >
-      <div className="App">
-        <Routes />
-      </div>
+      <Routes />
     </UserContext.Provider>
   );
 }

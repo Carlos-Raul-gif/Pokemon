@@ -42,20 +42,20 @@ export const Login = () => {
                         value={email}
                         name="email"
                         type="text"
-                        placeholder="email"
+                        placeholder="Email"
                         className={`${hasError && 'hasError'}`}
                         // autoComplete="off"
                         required
                     />
 
-                    { hasError && <div className="mensaje-error">Error! Correo o contrasena incorrecto </div> }
+                    { hasError && <div className="mensaje-error">Error! Correo o contraseña incorrecto </div> }
 
                     <input
                         onChange={inputChange} 
                         value={password} 
                         name="password" 
                         type="password" 
-                        placeholder="password" 
+                        placeholder="Password" 
                         required 
                     />
 

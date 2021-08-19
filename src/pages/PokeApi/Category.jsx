@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SpanAlert } from '../etiquetas/SpanAlert';
+import { SpanAlert } from '../../components/etiquetas/SpanAlert';
 import { Pokemon } from './Pokemon';
 
 export const Category = ({ results }) => {
