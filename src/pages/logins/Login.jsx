@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import { UserContext } from '../../context/UserContext';
 import { useForm } from '../../hooks/useForm';
 
@@ -9,26 +11,34 @@ export const Login = () => {
 
     const { setUsuario } = useContext(UserContext);
 
-    const [values, inputChange, resetValues] = useForm({
-        isAuthenticated: true, email: '', password: ''
+    const [ values, inputChange ] = useForm({
+        email: '', password: ''
     });
-
-    const [hasError, setHasError] = useState(false);
 
     const { email, password } = values;
 
-    const submitForm = (e) => {
+    const [ hasError, setHasError ] = useState(false);
+
+    const submitForm = async (e) => {
         e.preventDefault();
 
-        if (email === 'invitado@gmail.com') {
-            setUsuario({
-                isAuthenticated: true, nombre: 'Invitado', email: email
-            });
-        } else {
-            setHasError(true)
-            setTimeout(() => setHasError(false), 2000);
-        }
-        resetValues();
+        const { data } = await axios.post('http://localhost:4000/login', values);
+
+        try{
+            if(!data.err) {
+                console.log('logeado')
+                setUsuario({
+                    isAuthenticated: true, 
+                    nombre: data.payload.nombre, 
+                    email: data.payload.email, 
+                    token: data.token
+                });
+            } else {
+                setHasError(true)
+                setTimeout(() => setHasError(false), 2000);
+            }
+        } catch (err) { console.log(err) }
+
     }
 
     return (

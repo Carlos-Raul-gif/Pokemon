@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import { UserContext } from '../../context/UserContext';
 import { useForm } from '../../hooks/useForm';
 
@@ -7,26 +9,39 @@ import '../../styles/login.css';
 
 export const Register = () => {
 
+    // obtener la funcion para setear el valor global
     const { setUsuario } = useContext(UserContext);
 
-    const [ values, inputChange, resetValues ] = useForm({
+    // declarando los valores iniciales para el form
+    const [ values, inputChange ] = useForm({
         nombre: '',
         email: '',
         password: ''
     });
 
+    // desestructurando los valores del form
     const { nombre, email, password } = values;
 
-    const submitForm  = ( e ) => {
+    const submitForm = async  ( e ) => {
         e.preventDefault();
-        
-        setUsuario({
-            isAuthenticated: true,
-            nombre: nombre,
-            email: email
-        });
 
-        resetValues();
+        const { data } = await axios.post('http://localhost:4000/register', values);
+
+        try {
+            if(!data.err){
+                setUsuario({
+                    isAuthenticated: true,
+                    nombre,
+                    email,
+                    token: data.token
+                });
+            } else {
+                console.log('Errores en el server')
+            }
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     return (
