@@ -25,7 +25,7 @@ export const Login = () => {
         const { data } = await axios.post('http://localhost:4000/login', values);
 
         try{
-            if(!data.err || email === 'fabian@correo.com' ) {
+            if(!data.err) {
                 console.log('logeado')
                 setUsuario({
                     isAuthenticated: true, 

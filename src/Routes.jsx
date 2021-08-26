@@ -15,7 +15,6 @@ import { Navbar } from "./components/layouts/Navbar";
 
 // Paginas para las rutas
 import { Index as PokeApi } from './pages/PokeApi/Index';
-import { Perfil } from "./pages/Perfil/Perfil";
 import { Login } from "./pages/logins/Login";
 import { PrivateRoute } from "./context/PrivateRoute";
 import { Register } from "./pages/logins/Register";
@@ -42,7 +41,6 @@ export const Routes = () => {
 
                 {/* <========== Rutas privadas ============> */}
                 <PrivateRoute exact path="/categorias" component={PokeApi} />
-                <PrivateRoute exact path="/perfil" component={Perfil} />
 
                 <Route path="**"> <Redirect to="/categorias" /> </Route>
             </Switch>
