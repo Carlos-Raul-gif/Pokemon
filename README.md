@@ -1,7 +1,6 @@
 # Getting Started with Create React App
 
-Creado por Fabian Caamal
-## Available Scripts
+
 
 Para correr esta aplicacion es necesario poner en consola:
 
