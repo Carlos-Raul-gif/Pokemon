@@ -25,23 +25,11 @@ export const Register = () => {
     const submitForm = async  ( e ) => {
         e.preventDefault();
 
-        const { data } = await axios.post('http://localhost:4000/register', values);
-
-        try {
-            if(!data.err){
                 setUsuario({
                     isAuthenticated: true,
-                    nombre,
-                    email,
-                    token: data.token
-                });
-            } else {
-                console.log('Errores en el server')
-            }
-        } catch (error) {
-            console.log(error);
-        }
-
+                    nombre: email,
+                    correo: email
+                })
     }
 
     return (
