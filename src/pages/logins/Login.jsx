@@ -22,23 +22,11 @@ export const Login = () => {
     const submitForm = async (e) => {
         e.preventDefault();
 
-        const { data } = await axios.post('http://localhost:4000/login', values);
-
-        try{
-            if(!data.err) {
-                console.log('logeado')
-                setUsuario({
-                    isAuthenticated: true, 
-                    nombre: data.payload.nombre, 
-                    email: data.payload.email, 
-                    token: data.token
-                });
-            } else {
-                setHasError(true)
-                setTimeout(() => setHasError(false), 2000);
-            }
-        } catch (err) { console.log(err) }
-
+        setUsuario({
+            isAuthenticated: true,
+            nombre: email,
+            correo: email
+                })
     }
 
     return (
